@@ -1,0 +1,16 @@
+[
+{"id":"slrs700","type":"Shifters","model":"SL-RS700","manufacturer":"Shimano","speeds":11,"family":"shimano-road-11","note":"Flat bar mechanical road shifter"},
+{"id":"str7000","type":"Shifters","model":"ST-R7000","manufacturer":"Shimano","speeds":11,"family":"shimano-road-11","note":"Mechanical road dual control"},
+{"id":"rival11","type":"Shifters","model":"Rival 22","manufacturer":"SRAM","speeds":11,"family":"sram-road-11","note":"Exact Actuation mechanical road"},
+{"id":"rivalaxs","type":"Shifters","model":"Rival AXS","manufacturer":"SRAM","speeds":12,"family":"sram-axs-12","note":"Wireless AXS ecosystem"},
+{"id":"r7000ss","type":"Rear derailleurs","model":"RD-R7000-SS","manufacturer":"Shimano","speeds":11,"family":"shimano-road-11","maxCog":30,"capacity":35,"note":"Short cage; sample manufacturer limits"},
+{"id":"r7000gs","type":"Rear derailleurs","model":"RD-R7000-GS","manufacturer":"Shimano","speeds":11,"family":"shimano-road-11","maxCog":34,"capacity":39,"note":"Medium cage; sample manufacturer limits"},
+{"id":"rivalrd","type":"Rear derailleurs","model":"Rival 22 WiFLi","manufacturer":"SRAM","speeds":11,"family":"sram-road-11","maxCog":32,"capacity":37,"note":"Mechanical road; sample limits"},
+{"id":"ax srd","type":"Rear derailleurs","model":"Rival AXS 36T","manufacturer":"SRAM","speeds":12,"family":"sram-axs-12","maxCog":36,"capacity":39,"note":"AXS electronic road; sample limits"},
+{"id":"hg701","type":"Chains","model":"CN-HG701-11","manufacturer":"Shimano","speeds":11,"family":"shimano-road-11","note":"Directional chain; check installation guidance"},
+{"id":"pc1130","type":"Chains","model":"PC-1130","manufacturer":"SRAM","speeds":11,"family":"sram-road-11","note":"11-speed chain"},
+{"id":"flattop","type":"Chains","model":"Rival Flattop","manufacturer":"SRAM","speeds":12,"family":"sram-axs-12","note":"Road AXS Flattop system"},
+{"id":"fdr7000","type":"Front derailleurs","model":"FD-R7000","manufacturer":"Shimano","speeds":11,"family":"shimano-road-11","note":"2x road; mounting and chainring limits need verification"},
+{"id":"fcr7000","type":"Cranksets","model":"FC-R7000 50/34","manufacturer":"Shimano","speeds":11,"family":"shimano-road-11","note":"2x; 24 mm spindle; frame/BB compatibility separate"},
+{"id":"custom69","type":"Chainrings","model":"Custom 69T 1x","manufacturer":"Other","speeds":11,"family":"unknown","note":"User-defined; BCD, chainline, tooth profile and clearance unknown"}
+]
