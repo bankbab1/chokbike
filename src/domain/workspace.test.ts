@@ -3,6 +3,7 @@ test('oval perimeter preserves nominal chain pitch advance',()=>{const g=ellipse
 test('oval teeth distribute around the entire chainring',()=>{const points=ellipseTeeth(50,1.12);assert.equal(points.length,50);const gaps=points.map((p,i)=>Math.hypot(p.x-points[(i+1)%50].x,p.y-points[(i+1)%50].y));assert.ok(Math.max(...gaps)-Math.min(...gaps)<.05)});
 test('oval chain path changes with orientation without invalid coordinates',()=>{const a=ovalChainPath(50,1.12,0,13),b=ovalChainPath(50,1.12,Math.PI/2,13);assert.notEqual(a,b);assert.ok(!a.includes('NaN'));assert.ok(!b.includes('NaN'))});
 test('legacy saved setups get round default',()=>{const {shape,aspect,orientation,...legacy}=defaultSetup;assert.equal(normalizeSetup(legacy)?.shape,'round')});
+test('legacy saved setups get safe wheel material defaults',()=>{const {rimMaterial,wheelsetMass,...legacy}=defaultSetup;const migrated=normalizeSetup(legacy);assert.equal(migrated?.rimMaterial,'Aluminum');assert.equal(migrated?.wheelsetMass,1800)});
 test('corrupt saved setup is rejected',()=>assert.equal(normalizeSetup({...defaultSetup,front:NaN}),null));
 test('BSD mismatch fails and missing interface stays unknown',()=>{const f=upgradeChecks({currentTireBsd:'349',proposedTireBsd:'305'});assert.equal(f[0].state,'fail');assert.equal(f[1].state,'unknown')});
 test('matching strings never approve unresolved installation',()=>{const f=upgradeChecks({currentTireBsd:'622',proposedTireBsd:'622'});assert.equal(f[0].state,'pass');assert.equal(f.at(-1)?.state,'unknown')});

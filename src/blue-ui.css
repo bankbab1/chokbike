@@ -1,0 +1,52 @@
+:root{
+  --primary:#2563eb;--primary-strong:#1747b0;--primary-soft:#eaf2ff;--primary-faint:#f5f8ff;
+  --page:#f6f9ff;--surface:#fff;--surface-2:#f7faff;--text:#14213d;--muted-blue:#61708c;
+  --line:#dbe5f5;--diagram-tire:#a9b9d3;--diagram-rim:#3478f6;color-scheme:light;
+}
+html[data-theme=dark]{
+  --primary:#70a5ff;--primary-strong:#a7c8ff;--primary-soft:#172b4d;--primary-faint:#111d33;
+  --page:#09111f;--surface:#101b2d;--surface-2:#142239;--text:#eaf1ff;--muted-blue:#9aaaca;
+  --line:#253754;--diagram-tire:#60708d;--diagram-rim:#6ea4ff;color-scheme:dark;
+}
+html,body,#root,.app,main{background:var(--page);color:var(--text)}
+body{transition:background .2s,color .2s}
+aside,header,.card,.task-item,.home-bike-list button,.profile-tile,.catalog-item,.tool-card,.mobile-nav,.more-sheet,.sim-help,.sim .setup-switcher button,.lab-panels .is-active{background:var(--surface);border-color:var(--line)}
+aside,header,footer,.mobile-nav{border-color:var(--line)}
+.brand-icon,.primary,.task-item.primary-task{background:var(--primary)!important;color:#fff!important}
+.brand i,.nav-marker{background:var(--primary)}
+nav button.active,.mobile-nav button.active,.selected,.lab-panels,.match-wheels,.launch-power,.ride-power,.quick-compare article,.profile-summary,.tool-result,.measurement-diagram,.oval-controls{background:var(--primary-soft)!important;border-color:#b9cef3!important;color:var(--primary-strong)!important}
+nav button.active,.mobile-nav button.active,.field:focus-within>span,.eyebrow,.tool-bottom,.home-tool-link button,.sim-setup-title .pill,.sim .sim-stats strong,.ride-telemetry strong,.grade-slider strong,.wheel-editor-section h4{color:var(--primary-strong)}
+p,.module-heading p,.task-item small,.home-bike-list small,.muted,.field>span,.guided-field>span,.guided-field label>span,.wheel-editor-help,.surface-note,.bike-preview-note,.device-note,.breadcrumb,.setup-edit-title span{color:var(--muted-blue)!important}
+.field input,.field select,select,.profile-editor .field input,.interface-row input,.bike-page input,.guided-field select,.manual-field input{background:var(--surface-2);border-color:var(--line);color:var(--text)}
+.field input:focus,.field select:focus,.guided-field select:focus,.manual-field input:focus{border-color:var(--primary);outline:2px solid color-mix(in srgb,var(--primary) 24%,transparent)}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline-color:var(--primary)}
+input[type=checkbox],input[type=range]{accent-color:var(--primary)}
+.theme-toggle{position:fixed;right:22px;top:18px;z-index:50;display:flex;align-items:center;gap:8px;min-height:44px;padding:9px 13px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--text);box-shadow:0 8px 24px #18366b18;font-size:13px;font-weight:650}
+.theme-toggle:hover{border-color:var(--primary);filter:none}
+
+.setup-controls>:not(.guided-setup){display:none!important}
+.guided-setup{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.guided-intro{display:flex;justify-content:space-between;gap:20px;padding:22px 22px 18px}
+.guided-intro h3{font-size:20px;margin:5px 0 6px}.guided-intro p{font-size:13px}.guided-count{height:30px;padding:6px 10px;border-radius:99px;background:var(--primary-soft);color:var(--primary-strong);font-size:12px;white-space:nowrap}
+.milestones{display:grid;grid-template-columns:repeat(4,1fr);padding:0 22px 20px;position:relative}
+.milestones:before{content:"";position:absolute;top:17px;left:calc(12.5% + 22px);right:calc(12.5% + 22px);height:2px;background:var(--line)}
+.milestones button{position:relative;display:flex;flex-direction:column;align-items:center;gap:7px;color:var(--muted-blue);font-size:12px}
+.milestones button>span{width:35px;height:35px;display:grid;place-items:center;background:var(--surface);border:2px solid var(--line);border-radius:50%;z-index:1}
+.milestones button.current>span,.milestones button.done>span{background:var(--primary);border-color:var(--primary);color:#fff}.milestones button.current small{color:var(--primary-strong);font-weight:700}
+.guided-stage{border-top:1px solid var(--line);padding:24px;min-height:360px;background:var(--surface-2)}
+.stage-heading{display:flex;gap:12px;align-items:flex-start;margin-bottom:22px}.stage-heading>svg{color:var(--primary);margin-top:1px;flex:none}.stage-heading h4{font-size:18px;margin:0 0 5px}.stage-heading p{font-size:13px}
+.choice-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:22px}.choice-cards button{padding:16px;text-align:left;border:1px solid var(--line);background:var(--surface);border-radius:10px;min-height:112px}.choice-cards button.selected{border-color:var(--primary)!important}.choice-cards strong{display:block;font-size:14px;margin-bottom:7px}.choice-cards span{font-size:12px;line-height:1.6;color:var(--muted-blue)}
+.guided-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}.guided-grid .full{grid-column:1/-1}.guided-field{display:block;margin-bottom:18px}.guided-field>span,.guided-field label>span{font-size:13px;display:block;margin-bottom:8px}.guided-field select{width:100%;min-height:46px;padding:10px 12px;border:1px solid var(--line);border-radius:7px}.manual-field{margin-top:9px!important;padding:12px;border-left:3px solid var(--primary);background:var(--primary-faint);border-radius:0 7px 7px 0}.manual-field>div{position:relative}.manual-field small{position:absolute;right:12px;top:13px;color:var(--muted-blue)}
+.plain-help,.ready-note{display:flex;gap:10px;align-items:flex-start;padding:14px 16px;border:1px solid var(--line);border-radius:9px;background:var(--surface);color:var(--primary-strong)}.plain-help svg,.ready-note svg{flex:none;margin-top:2px}.plain-help p,.ready-note span{font-size:13px;line-height:1.7;color:var(--muted-blue)!important}
+.wheel-anatomy{margin:0 0 24px;padding:18px;background:var(--surface);border:1px solid var(--line);border-radius:12px}.wheel-anatomy svg{width:100%;max-height:245px}.wheel-anatomy text{fill:var(--text);font-size:13px}.wheel-anatomy figcaption{font-size:13px;line-height:1.7;color:var(--muted-blue);border-top:1px solid var(--line);padding-top:13px}.wheel-anatomy figcaption strong{color:var(--text)}
+.wheel-editor{border:0!important;padding:0!important}.wheel-editor>.field:first-child{display:none}.wheel-editor-section,.wheel-material{padding:18px;background:var(--surface);border:1px solid var(--line);border-radius:10px;margin-bottom:13px}.wheel-editor-section+.wheel-editor-section{border-top:1px solid var(--line);margin-top:13px;padding-top:18px}.wheel-material h4{font-size:15px;margin:0 0 17px}.wheel-material p{font-size:12px;line-height:1.75;color:var(--muted-blue)!important}.standard-field{min-width:0}.standard-field .field{margin-bottom:10px}.wheel-advanced{border-top:1px solid var(--line);padding-top:14px}.wheel-advanced summary,.guided-advanced summary{color:var(--primary-strong);font-size:13px;cursor:pointer;min-height:34px}.wheel-advanced[open] summary,.guided-advanced[open] summary{margin-bottom:15px}
+.review-list{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}.review-list>div{background:var(--surface);border:1px solid var(--line);border-radius:9px;padding:15px}.review-list span{font-size:11px;color:var(--muted-blue);display:block;margin-bottom:6px}.review-list strong{font-size:14px}.weight-effect{padding:16px;border-radius:9px;background:var(--primary-soft);margin-bottom:16px}.weight-effect strong{font-size:14px;color:var(--primary-strong)}.weight-effect p{font-size:12px;line-height:1.7;margin-top:7px}.guided-advanced{background:var(--surface);border:1px solid var(--line);padding:15px;border-radius:9px;margin-bottom:15px}.guided-advanced>p{font-size:12px;line-height:1.7}.guided-actions{display:flex;justify-content:space-between;padding:15px 22px;background:var(--surface);border-top:1px solid var(--line)}.guided-actions button{display:flex;align-items:center;gap:8px;min-height:44px;padding:9px 16px;border-radius:8px;border:1px solid var(--line)}
+
+html[data-theme=dark] .mechanism,html[data-theme=dark] .sim .full-bike .mechanism{background:#0c1728!important;border-color:var(--line)}
+html[data-theme=dark] .notice,html[data-theme=dark] .sim-empty,html[data-theme=dark] .compare-empty{background:#182237;color:#b9c7df;border-color:var(--line)}
+html[data-theme=dark] th{background:#17243a;color:#b8c6df}html[data-theme=dark] td{color:#cbd7ea}html[data-theme=dark] th,html[data-theme=dark] td{border-color:var(--line)}
+html[data-theme=dark] .dark-card,html[data-theme=dark] .task-item.primary-task{background:#173b76!important}
+html[data-theme=dark] .sim-cogs button,html[data-theme=dark] .ride-shift>button,html[data-theme=dark] .grade-slider button,html[data-theme=dark] .tabs button{background:var(--surface);border-color:var(--line);color:var(--text)}
+
+@media(max-width:800px){.theme-toggle{right:14px;top:10px;min-height:40px;padding:8px 11px}.theme-toggle span{display:none}.guided-intro{padding:18px 16px 15px}.guided-intro h3{font-size:18px}.milestones{padding:0 10px 17px}.milestones:before{left:13%;right:13%}.milestones button small{font-size:10px}.guided-stage{padding:18px 15px;min-height:330px}.choice-cards{grid-template-columns:1fr}.choice-cards button{min-height:0}.guided-grid,.review-list{grid-template-columns:1fr}.guided-grid .full{grid-column:auto}.wheel-anatomy{padding:10px}.wheel-anatomy svg{max-height:200px}.wheel-anatomy text{font-size:12px}.guided-actions{padding:13px 15px}}
+@media(max-width:390px){.milestones button small{max-width:62px}.theme-toggle{right:9px}.guided-count{display:none}}
