@@ -1,1 +1,42 @@
-[{"bsd":305,"label":"16 inch · compact"},{"bsd":349,"label":"16 inch · folding"},{"bsd":406,"label":"20 inch · BMX / folding"},{"bsd":451,"label":"20 inch · performance"},{"bsd":559,"label":"26 inch"},{"bsd":584,"label":"650B / 27.5 inch"},{"bsd":622,"label":"700C / 29 inch"}]
+[
+  {
+    "bsd": 203,
+    "label": "12 inch \u00b7 203"
+  },
+  {
+    "bsd": 254,
+    "label": "14 inch \u00b7 254"
+  },
+  {
+    "bsd": 288,
+    "label": "14 inch \u00b7 288"
+  },
+  {
+    "bsd": 305,
+    "label": "16 inch \u00b7 compact"
+  },
+  {
+    "bsd": 349,
+    "label": "16 inch \u00b7 folding"
+  },
+  {
+    "bsd": 406,
+    "label": "20 inch \u00b7 BMX / folding"
+  },
+  {
+    "bsd": 451,
+    "label": "20 inch \u00b7 performance"
+  },
+  {
+    "bsd": 559,
+    "label": "26 inch"
+  },
+  {
+    "bsd": 584,
+    "label": "650B / 27.5 inch"
+  },
+  {
+    "bsd": 622,
+    "label": "700C / 29 inch"
+  }
+]

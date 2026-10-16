@@ -1,0 +1,10 @@
+import{test}from'node:test';import assert from'node:assert/strict';import{rideStep,stoppedRide}from'./ride';import{defaultRoad}from'./simulation';
+const input={front:50,cog:13,diameter:678,power:150,maxTorque:60,road:defaultRoad};
+const run=(n:number,options= input)=>{let r={...stoppedRide};for(let i=0;i<n;i++)r=rideStep(r,.01,options);return r};
+test('start from rest is finite and increases speed and distance',()=>{const r=run(100);assert.ok(r.speed>0);assert.ok(r.distance>0);assert.ok(Number.isFinite(r.cadence));assert.ok(r.deliveredPower<=150)});
+test('cadence matches vehicle speed in selected gear',()=>{const r=run(100);const expected=(r.speed/3.6)/(Math.PI*.678*(50/13))*60;assert.ok(Math.abs(r.cadence-expected)<1e-10)});
+test('easier rear cog increases starting acceleration at torque limit',()=>{assert.ok(run(10,{...input,cog:28}).speed>run(10,input).speed)});
+test('no resistance accelerates farther than rough trail',()=>{const ideal=run(1000,{...input,road:{...defaultRoad,crr:0,cda:0,efficiency:1}}),rough=run(1000,{...input,road:{...defaultRoad,crr:.03}});assert.ok(ideal.speed>rough.speed);assert.ok(ideal.distance>rough.distance)});
+test('zero rider power stays at rest on level road',()=>{const r=run(100,{...input,power:0});assert.equal(r.speed,0);assert.equal(r.distance,0)});
+test('uphill starts slower than flat',()=>assert.ok(run(100,{...input,road:{...defaultRoad,grade:4}}).speed<run(100).speed));
+test('gear shift preserves momentum while cadence changes',()=>{const current=run(500),shifted=rideStep(current,.001,{...input,cog:19});assert.ok(Math.abs(shifted.speed-current.speed)<.01);assert.ok(shifted.cadence>current.cadence);assert.ok(shifted.distance>=current.distance)});
