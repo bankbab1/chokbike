@@ -41,3 +41,7 @@ The drivetrain drawing places the rear wheel/cog on the left and chainring on th
 - Validation: 23 domain checks, production TypeScript/Vite build, and server-render smoke checks for the four new/expanded pages. Browser viewport interaction testing could not run because the environment has no installed browser binary; responsive visual and device QA remains outstanding.
 
 All profiles/comparisons stay in this browser's localStorage. They are not synced or backed up; clearing site data removes them. The reference catalog remains representative sample data, not a complete worldwide verified catalog.
+
+## Simplified navigation and lab flow
+
+Home now presents three tasks: compare a setup, check an upgrade, or look up a specification, plus saved bikes. The lab separates Setup, Compare and Learn into explicit workspace tabs. One setup is edited at a time across all viewport sizes; fresh comparisons start with one current bike and Duplicate creates an option. Existing saved comparisons are preserved. Crank/oval controls, exact sequences, wheel dimensions, interpretation and saving are progressively disclosed. Comparison metrics and road assumptions stay in Compare; education stays in Learn. Only the visible active setup animates. Desktop navigation separates primary tasks from reference/tools. This update preserves calculations and browser-local data.
