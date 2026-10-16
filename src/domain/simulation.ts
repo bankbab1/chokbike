@@ -4,3 +4,5 @@ export function roadPower(kmh:number,r:Road){const v=kmh/3.6,air=v+r.wind/3.6,an
 export function wheelDimensions(bsd:number,tire:number,measured:number){return{rim:bsd,mounted:measured>0?measured:bsd+2*tire,circumference:Math.PI*(measured>0?measured:bsd+2*tire)};}
 export function metrics(front:number,cog:number,diameter:number,cadence:number,r:Road){const ratio=front/cog,development=Math.PI*diameter/1000*ratio,speed=development*cadence*.06,power=roadPower(speed,r),torque=power.total/(cadence*Math.PI/30);return {ratio,development,speed,power,torque,pedalForce:torque/(r.crank/1000)};}
 export function tangentChain(frontRadius:number,rearRadius:number,distance:number){const a=Math.asin((frontRadius-rearRadius)/distance),sx=frontRadius*Math.sin(a),sy=frontRadius*Math.cos(a),rx=distance+rearRadius*Math.sin(a),ry=rearRadius*Math.cos(a);return `M ${sx} ${-sy} L ${rx} ${-ry} A ${rearRadius} ${rearRadius} 0 0 1 ${rx} ${ry} L ${sx} ${sy} A ${frontRadius} ${frontRadius} 0 1 1 ${sx} ${-sy}`;}
+
+export function pitchRadius(teeth:number){return 12.7/(2*Math.sin(Math.PI/teeth));}

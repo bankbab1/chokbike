@@ -6,3 +6,4 @@ test('measured outer diameter overrides estimate',()=>assert.equal(wheelDimensio
 test('uphill power exceeds flat',()=>assert.ok(roadPower(25,{...defaultRoad,grade:5}).total>roadPower(25,defaultRoad).total));
 test('tailwind reduces aerodynamic load',()=>assert.ok(roadPower(25,{...defaultRoad,wind:-10}).total<roadPower(25,defaultRoad).total));
 test('chain tangent remains finite across supported sizes',()=>assert.ok(!tangentChain(135,10.8,310).includes('NaN')));
+test('shorter cranks increase tangential force at fixed torque but not gearing',()=>{const a=metrics(50,13,678,80,{...defaultRoad,crank:170}),b=metrics(50,13,678,80,{...defaultRoad,crank:160});assert.equal(a.ratio,b.ratio);assert.equal(a.speed,b.speed);assert.equal(a.power.total,b.power.total);assert.equal(a.torque,b.torque);assert.ok(Math.abs(b.pedalForce/a.pedalForce-170/160)<1e-12)});
