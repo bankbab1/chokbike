@@ -30,3 +30,14 @@ GitHub Pages serves compiled root index.html and assets. Edit app/index.html and
 ### Right-side view and rider guidance
 
 The drivetrain drawing places the rear wheel/cog on the left and chainring on the right. It uses a common physical millimeter scale: mounted tire diameter from BSD + tire width or measured override, sprocket pitch radius from 12.7 mm chain pitch, and crank/pedal orbit from each setup's crank length. Axles are level with fixed 420 mm center spacing; this schematic does not establish frame geometry, chain length, or ground clearance. Spoked, three-spoke and disc styles plus rim depth are visual only. Each setup has independent crank length; the comparison includes pedal circle, pedal path, pedal speed and gain ratio, and applies crank length to equivalent average tangential pedal force. Beginner, builder and racer guidance explains measurements, upgrade comparison, assumptions and checks that require specifications or physical verification. 14 domain tests pass.
+
+## Multi-bike workspace · mobile update
+
+- My bikes: device-local profiles with discipline, drivetrain lab setup, component markings and practical measurements; load into the lab, update an existing profile, or delete with confirmation.
+- Lab: device-local comparison persistence and saved-profile loading; round/oval selection; custom major/minor axis ratio and crank-relative orientation; nominal tooth count preserves average chain advance. Oval chain wrap and rear-speed modulation are illustrative. No branded profile or performance benefit is implied.
+- Upgrade checks: compare five user-entered interfaces; explicit pass/mismatch/unknown findings and component-specific evidence checklists for drivetrain, wheels, cranks and brakes. This does not replace a verified model-level compatibility engine. Checklists remain session-local.
+- Bike toolkit: road, gravel, MTB, mini velo, TT/triathlon, folding, city/trekking, track/single-speed and e-bike guidance; working sag, pad-position delta, folded envelope, internal-hub single gear and conditional battery-range calculators. No event, fit, suspension target or legal certification is implied.
+- Mobile: five-item navigation with a More sheet; single active setup with horizontal selector; sticky playback controls; compact before/after results; expandable reference/advanced panels; larger inputs and touch targets. Tablet/desktop retain sidebar and side-by-side layouts.
+- Validation: 23 domain checks, production TypeScript/Vite build, and server-render smoke checks for the four new/expanded pages. Browser viewport interaction testing could not run because the environment has no installed browser binary; responsive visual and device QA remains outstanding.
+
+All profiles/comparisons stay in this browser's localStorage. They are not synced or backed up; clearing site data removes them. The reference catalog remains representative sample data, not a complete worldwide verified catalog.

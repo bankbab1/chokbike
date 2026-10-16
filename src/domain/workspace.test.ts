@@ -1,0 +1,10 @@
+import{test}from'node:test';import assert from'node:assert/strict';import{ellipseAxes,ellipseTeeth,ovalChainPath}from'./oval';import{defaultSetup,normalizeSetup}from'./bikes';import{upgradeChecks,sagPercent,internalGear}from'./upgrades';
+test('oval perimeter preserves nominal chain pitch advance',()=>{const g=ellipseAxes(50,1.12);let p=0,x=g.a,y=0;for(let i=1;i<=10000;i++){const a=i/10000*Math.PI*2,nx=g.a*Math.cos(a),ny=g.b*Math.sin(a);p+=Math.hypot(nx-x,ny-y);x=nx;y=ny;}assert.ok(Math.abs(p-50*12.7)<.01);assert.ok(Math.abs(g.a/g.b-1.12)<1e-12)});
+test('oval teeth distribute around the entire chainring',()=>{const points=ellipseTeeth(50,1.12);assert.equal(points.length,50);const gaps=points.map((p,i)=>Math.hypot(p.x-points[(i+1)%50].x,p.y-points[(i+1)%50].y));assert.ok(Math.max(...gaps)-Math.min(...gaps)<.05)});
+test('oval chain path changes with orientation without invalid coordinates',()=>{const a=ovalChainPath(50,1.12,0,13),b=ovalChainPath(50,1.12,Math.PI/2,13);assert.notEqual(a,b);assert.ok(!a.includes('NaN'));assert.ok(!b.includes('NaN'))});
+test('legacy saved setups get round default',()=>{const {shape,aspect,orientation,...legacy}=defaultSetup;assert.equal(normalizeSetup(legacy)?.shape,'round')});
+test('corrupt saved setup is rejected',()=>assert.equal(normalizeSetup({...defaultSetup,front:NaN}),null));
+test('BSD mismatch fails and missing interface stays unknown',()=>{const f=upgradeChecks({currentTireBsd:'349',proposedTireBsd:'305'});assert.equal(f[0].state,'fail');assert.equal(f[1].state,'unknown')});
+test('matching strings never approve unresolved installation',()=>{const f=upgradeChecks({currentTireBsd:'622',proposedTireBsd:'622'});assert.equal(f[0].state,'pass');assert.equal(f.at(-1)?.state,'unknown')});
+test('sag calculates percentage and rejects overtravel',()=>{assert.equal(sagPercent(120,30),25);assert.throws(()=>sagPercent(120,130))});
+test('internal hub multiplies external gearing',()=>{assert.equal(internalGear(42,21,1.5,700,80).ratio,3);assert.throws(()=>internalGear(42,0,1,700,80))});
